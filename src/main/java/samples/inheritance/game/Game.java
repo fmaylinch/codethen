@@ -21,6 +21,7 @@ public class Game {
 
 		for (int i = 0; i < numEnemies && knight.isAlive(); i++) {
 
+			// We could declare enemy as Entity too
 			Player enemy = nextEnemy();
 
 			fight(knight, enemy);
@@ -33,7 +34,8 @@ public class Game {
 		}
 	}
 
-	private void fight(Player p1, Player p2) {
+	/** Performs a fight between 2 entities while both are alive */
+	private void fight(Entity p1, Entity p2) {
 
 		System.out.println("--- " + p1 + " vs " + p2 + " ... fight! ---");
 
@@ -47,12 +49,13 @@ public class Game {
 			p1.receiveHit(a2);
 			p2.receiveHit(a1);
 
-			waitMillis(1000);
+			// waitMillis(1000);
 		}
 
 		System.out.println(p1 + ", " + p2);
 	}
 
+	/** Pauses the program for a while */
 	private void waitMillis(int millis) {
 		try {
 			Thread.sleep(millis);
@@ -61,6 +64,7 @@ public class Game {
 		}
 	}
 
+	/** Generates a random enemy */
 	private Player nextEnemy() {
 
 		int num = random.nextInt(3);
@@ -72,13 +76,16 @@ public class Game {
 			default: throw new RuntimeException("unexpected!");
 		}
 
-		/*
+		/* The switch statement above is equivalent to:
+
 		if (num == 0) {
 			return new Rat();
 		} else if (num == 1) {
 			return new Skeleton();
-		} else {
+		} else if (num == 2) {
 			return new Zombie();
+		} else {
+			throw new RuntimeException("unexpected!");
 		}
 		*/
 	}
