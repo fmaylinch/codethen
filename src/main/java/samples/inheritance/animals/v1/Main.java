@@ -9,7 +9,7 @@ public class Main {
 		bird.numLegs = 2;
 		bird.maxHeight = 1000;
 		bird.walk();
-		bird.fly();
+		bird.fly(500);
 
 		Snake snake = new Snake();
 		snake.name = "cobra";

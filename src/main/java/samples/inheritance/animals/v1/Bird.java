@@ -4,7 +4,8 @@ public class Bird extends Animal {
 
 	public int maxHeight;
 
-	public void fly() {
-		System.out.println(this.name + " flying at " + maxHeight + " meters high!");
+	public void fly(int height) {
+		final int actualHeight = Math.min(height, maxHeight);
+		System.out.println(this.name + " flying at " + actualHeight + " meters high!");
 	}
 }
