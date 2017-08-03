@@ -8,7 +8,7 @@ public class Knight extends Player {
 
 	public Knight() {
 		this.random = new Random();
-		setHealth(25);
+		setHealth(50);
 	}
 
 	@Override

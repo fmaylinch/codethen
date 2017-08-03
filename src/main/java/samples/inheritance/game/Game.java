@@ -15,7 +15,7 @@ public class Game {
 	public void start() {
 
 		Knight knight = new Knight();
-		int numEnemies = 3;
+		int numEnemies = 5;
 
 		System.out.println("Game starts. The knight will fight " + numEnemies + " enemies!");
 
@@ -42,12 +42,12 @@ public class Game {
 		while (p1.isAlive() && p2.isAlive()) {
 
 			int a1 = p1.attack();
+			p2.receiveHit(a1);
+
 			int a2 = p2.attack();
+			p1.receiveHit(a2);
 
 			System.out.println(p1 + " hits " + a1 + ", " + p2 + " hits " + a2);
-
-			p1.receiveHit(a2);
-			p2.receiveHit(a1);
 
 			// waitMillis(1000);
 		}
@@ -67,12 +67,13 @@ public class Game {
 	/** Generates a random enemy */
 	private Player nextEnemy() {
 
-		int num = random.nextInt(3);
+		int num = random.nextInt(4);
 
 		switch (num) {
 			case 0: return new Rat();
 			case 1: return new Skeleton();
 			case 2: return new Zombie();
+			case 3: return new Giant();
 			default: throw new RuntimeException("unexpected!");
 		}
 
