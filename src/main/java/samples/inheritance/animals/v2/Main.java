@@ -1,5 +1,10 @@
 package samples.inheritance.animals.v2;
 
+/**
+ * In this version, all fields are made private.
+ * Fields are accessed via getters and setters
+ * (when needed from outside the class).
+ */
 public class Main {
 
 	public static void main(String[] args) {

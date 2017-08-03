@@ -1,5 +1,9 @@
 package samples.inheritance.animals.v1;
 
+/**
+ * Simple inheritance example.
+ * All fields are public.
+ */
 public class Main {
 
 	public static void main(String[] args) {
