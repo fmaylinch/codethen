@@ -1,18 +1,15 @@
 package samples.inheritance.game.players;
 
-import java.util.Random;
+import samples.inheritance.game.dice.Dice;
 
 public class Knight extends Player {
 
-	private Random random;
-
 	public Knight() {
-		this.random = new Random();
 		setHealth(50);
 	}
 
 	@Override
-	public int attack() {
-		return random.nextInt(10);
+	public int attack(Dice dice) {
+		return dice.nextInt(10);
 	}
 }

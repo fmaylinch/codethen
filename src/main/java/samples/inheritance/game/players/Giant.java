@@ -1,23 +1,21 @@
 package samples.inheritance.game.players;
 
-import java.util.Random;
+import samples.inheritance.game.dice.Dice;
 
 public class Giant extends Player {
 
-	private Random random;
 	private boolean vulnerable;
 
 	public Giant() {
-		this.random = new Random();
 		this.vulnerable = false;
 	}
 
 	@Override
-	public int attack() {
+	public int attack(Dice dice) {
 
-		if (random.nextInt(3) == 0) {
+		if (dice.nextInt(3) == 0) {
 			this.vulnerable = true;
-			return random.nextInt(3) + 4;
+			return dice.nextInt(3) + 4;
 		} else {
 			this.vulnerable = false;
 			return 0;
@@ -25,7 +23,7 @@ public class Giant extends Player {
 	}
 
 	@Override
-	public void receiveHit(int hit) {
-		super.receiveHit(vulnerable ? hit*2 : hit/2);
+	public void receiveHit(int hit, Dice dice) {
+		super.receiveHit(vulnerable ? hit*2 : hit/2, dice);
 	}
 }

@@ -1,5 +1,6 @@
 package samples.inheritance.game.players;
 
+import samples.inheritance.game.dice.Dice;
 import samples.inheritance.game.Entity;
 
 /**
@@ -30,9 +31,8 @@ public abstract class Player implements Entity {
 		this.health = health;
 	}
 
-	public abstract int attack();
-
-	public void receiveHit(int hit) {
+	@Override
+	public void receiveHit(int hit, Dice dice) {
 		this.health -= hit;
 	}
 

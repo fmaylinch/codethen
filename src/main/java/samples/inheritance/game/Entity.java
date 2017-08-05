@@ -1,5 +1,7 @@
 package samples.inheritance.game;
 
+import samples.inheritance.game.dice.Dice;
+
 /**
  * An entity in the game.
  *
@@ -15,9 +17,9 @@ public interface Entity {
 
 	int getHealth();
 
-	/** Returns the next attack */
-	int attack();
+	/** Returns the next attack depending on the dice number */
+	int attack(Dice dice);
 
-	/** Receives the hit from another entity */
-	void receiveHit(int hit);
+	/** Receives the hit from another entity depending on the dice number */
+	void receiveHit(int hit, Dice dice);
 }

@@ -1,17 +1,11 @@
 package samples.inheritance.game.players;
 
-import java.util.Random;
+import samples.inheritance.game.dice.Dice;
 
 public class Zombie extends Player {
 
-	private Random random;
-
-	public Zombie() {
-		this.random = new Random();
-	}
-
 	@Override
-	public int attack() {
-		return random.nextInt(3) + 2;
+	public int attack(Dice dice) {
+		return dice.nextInt(3) + 2;
 	}
 }

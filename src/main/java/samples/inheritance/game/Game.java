@@ -1,15 +1,14 @@
 package samples.inheritance.game;
 
+import samples.inheritance.game.dice.Dice;
 import samples.inheritance.game.players.*;
-
-import java.util.Random;
 
 public class Game {
 
-	private final Random random;
+	private final Dice dice;
 
-	public Game() {
-		random = new Random();
+	public Game(Dice dice) {
+		this.dice = dice;
 	}
 
 	public void start() {
@@ -35,24 +34,32 @@ public class Game {
 	}
 
 	/** Performs a fight between 2 entities while both are alive */
-	private void fight(Entity p1, Entity p2) {
+	public void fight(Entity p1, Entity p2) {
 
 		System.out.println("--- " + p1 + " vs " + p2 + " ... fight! ---");
 
 		while (p1.isAlive() && p2.isAlive()) {
 
-			int a1 = p1.attack();
-			p2.receiveHit(a1);
-
-			int a2 = p2.attack();
-			p1.receiveHit(a2);
-
-			System.out.println(p1 + " hits " + a1 + ", " + p2 + " hits " + a2);
+			fightTurn(p1, p2);
 
 			// waitMillis(1000);
 		}
 
 		System.out.println(p1 + ", " + p2);
+	}
+
+	/**
+	 * p1 attacks p2, then p2 attacks p1
+	 */
+	public void fightTurn(Entity p1, Entity p2) {
+
+		int a1 = p1.attack(dice);
+		p2.receiveHit(a1, dice);
+
+		int a2 = p2.attack(dice);
+		p1.receiveHit(a2, dice);
+
+		System.out.println(p1 + " hits " + a1 + ", " + p2 + " hits " + a2);
 	}
 
 	/** Pauses the program for a while */
@@ -67,7 +74,7 @@ public class Game {
 	/** Generates a random enemy */
 	private Player nextEnemy() {
 
-		int num = random.nextInt(4);
+		int num = dice.nextInt(4);
 
 		switch (num) {
 			case 0: return new Rat();
