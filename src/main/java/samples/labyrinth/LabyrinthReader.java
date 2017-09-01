@@ -8,7 +8,7 @@ import java.util.List;
 public class LabyrinthReader {
 
 	// Note: `static final` is for constants in Java
-	public static final char TILE_PLAYER = 'o';
+	public static final char TILE_PLAYER = '·';
 
 	/**
 	 * Builds a Labyrinth from a list of strings.

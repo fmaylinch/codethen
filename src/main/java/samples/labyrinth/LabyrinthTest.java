@@ -17,10 +17,10 @@ public class LabyrinthTest {
 	public static void testMovePlayer() {
 
 		List<String> map = Arrays.asList(
-			"XXXXXXX",
-			"XX XX  ",
-			"XX o  X",
-			"XXXXXXX"
+			"@@@@@@@",
+			"@@ @@  ",
+			"@@ ·  @",
+			"@@@@@@@"
 		);
 
 		LabyrinthReader labyrinthReader = new LabyrinthReader();
@@ -37,12 +37,12 @@ public class LabyrinthTest {
 	public static void testMovePlayerMultipleTimes() {
 
 		List<String> map = Arrays.asList(
-			"X XXXXX",
-			"X XX XX",
-			"X    XX",
-			"XX XX X",
-			"XX  o X",
-			"XXXXXXX"
+			"@ @@@@@",
+			"@ @@ @@",
+			"@    @@",
+			"@@ @@ @",
+			"@@  · @",
+			"@@@@@@@"
 		);
 
 		// Note: we can inline the LabyrinthReader variable
@@ -65,10 +65,10 @@ public class LabyrinthTest {
 	public static void testEscape() {
 
 		List<String> map = Arrays.asList(
-			"XXXXXXX",
-			"XX XXoX",
-			"XX    X",
-			"XX XXXX"
+			"@@@@@@@",
+			"@@ @@·@",
+			"@@    @",
+			"@@ @@@@"
 		);
 
 		Labyrinth labyrinth = new LabyrinthReader().build(map);

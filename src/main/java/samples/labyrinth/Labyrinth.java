@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Labyrinth {
 
-	public static final char TILE_WALL = 'X';
+	public static final char TILE_WALL = '@';
 	public static final char TILE_SPACE = ' ';
 
 	private List<String> rows;
