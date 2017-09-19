@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Example of Java {@link Stream} and the popular functions
+ * Examples of Java {@link Stream} and the popular functions
  * {@link Stream#filter}, {@link Stream#map} and {@link Stream#reduce}
  */
-public class MapFilter {
+public class JavaStreams {
 
 	public static void main(String[] args) {
 
