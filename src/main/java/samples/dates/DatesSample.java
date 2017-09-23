@@ -28,6 +28,7 @@ public class DatesSample {
 
 		// DateFormat formats dates in a readable format
 		// SimpleDateFormat is a DateFormat that lets you choose the date pattern
+		// See the docs: https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		String dateStr = dateFormat.format(date);
 		System.out.println("Current date (formatted): " + dateStr);
