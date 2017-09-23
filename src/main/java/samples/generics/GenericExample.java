@@ -3,6 +3,11 @@ package samples.generics;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Examples on using generics in Java.
+ *
+ * Learn more in the official tutorial: https://docs.oracle.com/javase/tutorial/java/generics/index.html
+ */
 public class GenericExample {
 
 	public static void main(String[] args) {
