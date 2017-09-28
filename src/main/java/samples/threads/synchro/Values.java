@@ -1,4 +1,4 @@
-package samples.threads.consume;
+package samples.threads.synchro;
 
 import java.util.ArrayList;
 import java.util.List;
