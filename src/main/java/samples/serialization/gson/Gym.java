@@ -1,4 +1,4 @@
-package samples.filejson;
+package samples.serialization.gson;
 
 public class Gym {
 

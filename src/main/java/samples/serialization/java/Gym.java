@@ -1,11 +1,13 @@
-package samples.filedata;
+package samples.serialization.java;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- * We need to add `implements Serializable` if we want to use
- * ObjectInputStream and ObjectOutputStream.
- * It's just a little marker that these classes require; it does nothing, actually.
+ * We need to implement {@link Serializable} if we want to use
+ * {@link ObjectInputStream} and {@link ObjectOutputStream}.
+ * It's just a little marker that those classes require; it does nothing, actually.
  */
 public class Gym implements Serializable {
 

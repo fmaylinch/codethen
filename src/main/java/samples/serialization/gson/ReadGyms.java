@@ -1,7 +1,8 @@
-package samples.filejson;
+package samples.serialization.gson;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import samples.serialization.Util;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class ReadGyms {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-		FileReader reader = new FileReader("src/main/resources/gyms.json");
+		FileReader reader = new FileReader(Util.baseFolder + "/gyms.json");
 
 		Gson gson = new Gson();
 		// This type is used to tell Gson how to convert JSON string to objects
@@ -28,7 +29,7 @@ public class ReadGyms {
 		// Display the gyms (those that are visible)
 		for (Gym gym : gyms) {
 			if (gym.isVisible()) {
-				System.out.println( gym.getName() + " at " + gym.getPrice() + "€");
+				System.out.println( gym.getName() + ": " + gym.getPrice() + "€");
 			}
 		}
 	}

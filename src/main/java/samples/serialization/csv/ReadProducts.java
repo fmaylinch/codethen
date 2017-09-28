@@ -1,4 +1,6 @@
-package samples.files;
+package samples.serialization.csv;
+
+import samples.serialization.Util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,14 +8,14 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * This program reads the file created by {@link ShoppingCreate}.
+ * This program reads the file created by {@link WriteProducts}.
  * It just prints the products contained in the products.csv file.
  */
-public class ShoppingRead {
+public class ReadProducts {
 
 	public static void main(String[] args) throws IOException {
 
-		Reader reader = new FileReader("myfiles/products.csv");
+		Reader reader = new FileReader(Util.baseFolder + "/products.csv");
 
 		BufferedReader br = new BufferedReader(reader);
 
