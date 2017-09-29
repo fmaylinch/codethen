@@ -5,6 +5,9 @@ package samples.threads;
  * {@link Thread} and {@link Runnable}.
  *
  * Also pausing them with {@link Thread#sleep(long)}.
+ *
+ * More information in the Java tutorial:
+ * https://docs.oracle.com/javase/tutorial/essential/concurrency
  */
 public class ThreadExamples {
 
