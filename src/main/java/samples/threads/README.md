@@ -1,6 +1,6 @@
 # Thread examples
 
-- **ThreadSimpleExample** : Simple example where 3 threads are created and started
+- [ThreadSimpleExample](ThreadSimpleExample.java) : Simple example where 3 threads are created and started
 - **ThreadExamples** : Several ways of creating threads
 - **ThreadPoolExample** : Creates a pool of threads that can be reused
 - **ThreadExecutorResultExample** : Shows how to retrieve results from the tasks the threads perform
