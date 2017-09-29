@@ -1,10 +1,10 @@
 # Thread examples
 
 - [ThreadSimpleExample](ThreadSimpleExample.java) : Simple example where 3 threads are created and started
-- **ThreadExamples** : Several ways of creating threads
-- **ThreadPoolExample** : Creates a pool of threads that can be reused
-- **ThreadExecutorResultExample** : Shows how to retrieve results from the tasks the threads perform
-- **Synchronized example** : Example of synchronization between threads (typical producer/consumer scenario)
+- [ThreadExamples](ThreadExamples.java) : Several ways of creating threads
+- [ThreadPoolExample](ThreadPoolExample.java) : Creates a pool of threads that can be reused
+- [ThreadExecutorResultExample](ThreadExecutorResultExample.java) : Shows how to retrieve results from the tasks the threads perform
+- [Synchronized example](synchro) : Example of synchronization between threads (typical producer/consumer scenario)
 
 
 ## Important facts about threads:
