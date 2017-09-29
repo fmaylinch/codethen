@@ -15,8 +15,14 @@ public class ThreadSimpleExample {
 		t2.start();
 		t3.start();
 
-		System.out.println("Threads started!");
+		ThreadUtil.println("Threads started!");
 	}
+
+	// Although this is not related to threads, note that the following class
+	// is declared inside the main class in this file. These are called inner classes.
+	// In Java you usually want to declare them as `static`,
+	// otherwise you would only be able to instantiate them inside non-static methods.
+	// For more info: https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
 
 	static class MyThread extends Thread {
 		@Override

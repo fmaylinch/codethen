@@ -4,7 +4,7 @@ package samples.threads;
  * Program showing different ways of creating threads using
  * {@link Thread} and {@link Runnable}.
  *
- * Also pausing them with {@link Thread#sleep(long)}.
+ * Also pausing them with {@link Thread#sleep(long)} and waiting with {@link Thread#join()}.
  *
  * More information in the Java tutorial:
  * https://docs.oracle.com/javase/tutorial/essential/concurrency
@@ -69,17 +69,15 @@ public class ThreadExamples {
 		t2c.start();
 
 		// Same as before, but inlining the lambda and calling start() directly
-		// Note here I don't set a thread name (although I could);
-		//  in that case an auto-generated name will be assigned.
-		new Thread(() -> {
-			ThreadUtil.println("I'm a lambda (inline) implementing Runnable");
-		}).start();
+		// Note this time I don't set a thread name (although we could);
+		//  so an auto-generated name will be assigned.
+		new Thread(() -> ThreadUtil.println("Another Runnable lambda")).start();
 
 
 
 		// You can pause a thread using the sleep() method
 
-		new Thread(() -> {
+		Thread slowThread = new Thread(() -> {
 
 			int pauseInSecs = 3;
 
@@ -92,27 +90,32 @@ public class ThreadExamples {
 			}
 
 			// The sleep method throws an exception so we need a try/catch.
-			// That's annoying so I created a convenience method:
+			// That's annoying for these simple examples so I created a convenience method:
 
 			ThreadUtil.println("Pausing for another " + pauseInSecs + " seconds");
 			ThreadUtil.sleep(pauseInSecs * 1000);
 
-			ThreadUtil.println("This is the last sentence so I'm finishing");
+			ThreadUtil.println("This is the last statement so I'm finishing");
 
-		}).start();
+		}, "slow-thread");
+		slowThread.start();
 
 
 		// The main thread ends here, but notice a program doesn't stop
 		// until all threads finish.
 		ThreadUtil.println("All threads started");
+
+
+		// With join() we can wait for a thread to finish
+		try {
+			ThreadUtil.println("Waiting for the slow thread to finish...");
+			slowThread.join();
+			ThreadUtil.println("The slow thread finished!");
+			
+		} catch (InterruptedException e) {
+			throw new RuntimeException("I was interrupted!", e);
+		}
 	}
-
-
-
-	// Note the following classes are declared inside the main class in this file.
-	// These are called inner classes.
-	// In Java you usually want to declare them as `static`,
-	// otherwise you would only be able to use them inside non-static methods.
 
 
 	/** Extend {@link Thread} and indicate what to do in {@link #run()} */
