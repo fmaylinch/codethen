@@ -16,7 +16,7 @@ package samples.patterns
 fun main(args: Array<String>) {
 
     /*
-    val airAisaAdapter : FlightPurchaser = AirAsiaAdapter(AirAsia())
+    val airAsiaAdapter : FlightPurchaser = AirAsiaAdapter(AirAsia())
     val finnAirAdapter : FlightPurchaser = FinnAirAdapter(FinnAir())
     val iberiaAdapter : FlightPurchaser = IberiaAdapter(Iberia())
     */
