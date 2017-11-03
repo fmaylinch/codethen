@@ -9,7 +9,12 @@ fun main(args: Array<String>) {
 
     val range = maxSubList(list)
     println(range)
-    println(list.subList(range.from, range.to+1))
+
+    val subList = list.subList(range.from, range.to + 1)
+    println(subList)
+
+    Util.checkEquals(range, Range(7, 10, 43))
+    Util.checkEquals(subList, listOf(18, 20, -7, 12))
 }
 
 data class Range<T>(var from:Int, var to:Int, var sum:T)

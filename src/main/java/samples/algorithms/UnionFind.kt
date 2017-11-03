@@ -18,6 +18,11 @@ fun main(args: Array<String>) {
     system.union(6, 1)
     system.union(1, 0)
     system.union(6, 7)
+
+    Util.checkEquals(system.count(), 2)
+    Util.checkEquals(system.componentToSites, mapOf(
+            Pair(system.find(0), setOf(0, 1, 2, 5, 6, 7)),
+            Pair(system.find(3), setOf(3, 4, 8, 9))))
 }
 
 /**
