@@ -2,13 +2,25 @@ package samples.algorithms
 
 import samples.testing.util.TestUtil
 
+/**
+ * My implementations for merge sort and quick sort.
+ * Note the implementations aren't probably the best.
+ */
 fun main(args: Array<String>) {
 
-    checkMergeSort(arrayOf(1), arrayOf(1))
-    checkMergeSort(arrayOf(1, 2), arrayOf(1, 2))
-    checkMergeSort(arrayOf(2, 1), arrayOf(1, 2))
-    checkMergeSort(arrayOf(2, 1, 3), arrayOf(1, 2, 3))
-    checkMergeSort(
+    checkSorting(arrayOf(1), arrayOf(1))
+    checkSorting(arrayOf(1, 2), arrayOf(1, 2))
+    checkSorting(arrayOf(2, 1), arrayOf(1, 2))
+    checkSorting(arrayOf(2, 1, 3), arrayOf(1, 2, 3))
+    checkSorting(arrayOf(1, 2, 3), arrayOf(1, 2, 3))
+    checkSorting(arrayOf(3, 2, 1), arrayOf(1, 2, 3))
+    checkSorting(
+      arrayOf(1, 1, 1, 2, 3, 3, 2, 3, 1, 1),
+      arrayOf(1, 1, 1, 1, 1, 2, 2, 3, 3, 3))
+    checkSorting(
+      arrayOf(1, 2, 3, 7, 4, 5, 6),
+      arrayOf(1, 2, 3, 4, 5, 6, 7))
+    checkSorting(
       arrayOf(11, 7, 17, 12, 5, 10, 4, 20, 21, 22, 3, 2, 38),
       arrayOf(2, 3, 4, 5, 7, 10, 11, 12, 17, 20, 21, 22, 38))
 
@@ -16,12 +28,74 @@ fun main(args: Array<String>) {
 }
 
 
-// Merge sort
+/** Checks merge sort and quick sort */
+fun checkSorting(original: Array<Int>, expectedSorted: Array<Int>) {
+    checkMergeSort(original, expectedSorted)
+    checkQuickSort(original, expectedSorted)
+}
 
 fun checkMergeSort(original: Array<Int>, expectedSorted: Array<Int>) {
     val sorted = mergeSort(original)
     TestUtil.assertEquals(sorted.toList(), expectedSorted.toList())
 }
+
+fun checkQuickSort(original: Array<Int>, expectedSorted: Array<Int>) {
+    val copy = original.copyOf()
+    quickSort(copy)
+    TestUtil.assertEquals(copy.toList(), expectedSorted.toList())
+}
+
+
+// Quick sort
+
+fun quickSort(a: Array<Int>) = quickSort(a, 0, a.size)
+
+fun quickSort(a: Array<Int>, from: Int, to: Int) {
+
+    val len = to - from
+
+    if (len <= 1) return
+
+    val p = partition(a, from, to)
+
+    quickSort(a, from, p)
+    quickSort(a, p, to)
+}
+
+/**
+ * Returns a partition index p satisfying that,
+ * for some value v:
+ *   a(i) <= v  where i <= p
+ *   a(i) >= v  where i >= p
+ *
+ * The value v is taken from the value in the middle of the array
+ */
+fun partition(a: Array<Int>, from: Int, to: Int): Int {
+
+    val mid = from + (to - from)/2
+    val v = a[mid]
+
+    var p = from
+    var q = to - 1
+
+    while (p < q) {
+
+        while (a[p] < v && p < q) p++
+        while (a[q] > v && q > p) q--
+
+        if (p < q) {
+            val x = a[p]
+            a[p] = a[q]
+            a[q] = x
+            p++
+        }
+    }
+
+    return p
+}
+
+
+// Merge sort
 
 fun mergeSort(a: Array<Int>):Array<Int> = mergeSort(a, 0, a.size)
 
