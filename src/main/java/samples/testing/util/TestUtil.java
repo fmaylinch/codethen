@@ -12,4 +12,11 @@ public class TestUtil {
 			throw new RuntimeException("actual " + actual + " is not equals to expected " + expected);
 		}
 	}
+
+	public static void assertTrue(boolean actual) {
+
+		if (!actual) {
+			throw new RuntimeException("expected true but found false");
+		}
+	}
 }

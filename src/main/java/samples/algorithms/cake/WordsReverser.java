@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * Reverses the whole sentence, then reverses each word.
+ *
+ * https://www.interviewcake.com/question/java/reverse-words
  */
 public class WordsReverser {
 
