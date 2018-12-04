@@ -24,15 +24,17 @@ public class WriteGyms {
 
 		gyms.get(2).setVisible(false); // just set one gym to invisible
 
+		GymList gymList = new GymList(gyms);
 
-		Gson gson = new Gson();
-		// Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		//Gson gson = new Gson();
+		// With pretty printing, the resulting JSON is more readable
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 		// Convert gyms to a string in JSON format
-		String json = gson.toJson(gyms);
+		String json = gson.toJson(gymList);
 
 		// Display json on screen (just to see how it looks)
-		System.out.println( json );
+		System.out.println(json);
 
 		// Write JSON to file
 		FileWriter writer = new FileWriter(Util.baseFolder + "/gyms.json");
