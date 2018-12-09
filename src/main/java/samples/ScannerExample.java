@@ -10,13 +10,13 @@ public class ScannerExample {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Tell me your name: ");
-		String name = scanner.next();
+		String name = scanner.nextLine();
 
 		System.out.print("Tell me your age: ");
-		int age = Integer.parseInt( scanner.next() );
+		int age = Integer.parseInt( scanner.nextLine() );
 
 		System.out.print("Tell me your height in meters: ");
-		double height = Double.parseDouble( scanner.next() );
+		double height = Double.parseDouble( scanner.nextLine() );
 
 		System.out.println(name + ", " + age + " years, " + (height * 100) + " cm");
 
